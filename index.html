@@ -161,121 +161,475 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Updated Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0 40px;
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/><polygon fill="rgba(255,255,255,0.05)" points="0,800 1000,600 1000,800 0,1000"/></svg>');
-        }
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/><polygon fill="rgba(255,255,255,0.05)" points="0,800 1000,600 1000,800 0,1000"/></svg>');
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            animation: fadeInUp 1s ease;
-        }
+/* Hero Intro (Name and Tagline) */
+.hero-intro {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 60px;
+    animation: fadeInUp 1s ease;
+}
 
-        .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--white), #e3f2fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.hero-content h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, var(--white), #e3f2fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-        .hero-subtitle {
-            font-size: 1.8rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
+.hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
 
-        .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+/* ETL Section in Hero */
+.hero-etl-section {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 40px 0;
+    animation: fadeInUp 1s ease 0.5s both;
+}
 
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
+.etl-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--white);
+}
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
+.etl-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    color: var(--white);
+}
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
+.etl-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-        .btn:hover::before {
-            left: 100%;
-        }
+.etl-stage {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px 25px;
+    text-align: center;
+    min-width: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
 
-        .btn-primary {
-            background: var(--white);
-            color: var(--primary-color);
-        }
+.etl-stage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: etlShine 3s ease-in-out infinite;
+}
 
-        .btn-primary:hover {
-            background: var(--bg-light);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
+@keyframes etlShine {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
+}
 
-        .btn-secondary {
-            border-color: var(--white);
-            color: var(--white);
-        }
+.etl-stage:hover {
+    transform: translateY(-5px) scale(1.03);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
 
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
+.etl-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--white);
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.etl-stage h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.data-sources,
+.transform-operations,
+.target-systems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+
+.source-item,
+.operation-item,
+.target-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: itemFloat 2s ease-in-out infinite;
+}
+
+@keyframes itemFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-2px); }
+}
+
+.source-item:nth-child(1) { animation-delay: 0s; }
+.source-item:nth-child(2) { animation-delay: 0.2s; }
+.source-item:nth-child(3) { animation-delay: 0.4s; }
+.source-item:nth-child(4) { animation-delay: 0.6s; }
+
+.operation-item:nth-child(1) { animation-delay: 0.1s; }
+.operation-item:nth-child(2) { animation-delay: 0.3s; }
+.operation-item:nth-child(3) { animation-delay: 0.5s; }
+.operation-item:nth-child(4) { animation-delay: 0.7s; }
+
+.target-item:nth-child(1) { animation-delay: 0.2s; }
+.target-item:nth-child(2) { animation-delay: 0.4s; }
+.target-item:nth-child(3) { animation-delay: 0.6s; }
+.target-item:nth-child(4) { animation-delay: 0.8s; }
+
+.etl-arrow {
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-width: 60px;
+}
+
+.arrow-line {
+    height: 3px;
+    background: linear-gradient(90deg, var(--white), rgba(255, 255, 255, 0.8));
+    border-radius: 1.5px;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.arrow-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: arrowFlow 2s ease-in-out infinite;
+}
+
+@keyframes arrowFlow {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.arrow-head {
+    width: 0;
+    height: 0;
+    border-left: 10px solid var(--white);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    margin-left: -2px;
+    animation: arrowBounce 2s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateX(0px); }
+    50% { transform: translateX(3px); }
+}
+
+.data-flow {
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+}
+
+.data-flow::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 15px;
+    height: 4px;
+    background: var(--white);
+    border-radius: 2px;
+    animation: dataMove 3s linear infinite;
+}
+
+@keyframes dataMove {
+    0% { left: 0; opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+/* Hero Actions */
+.hero-actions {
+    position: relative;
+    z-index: 2;
+    margin-top: 50px;
+    animation: fadeInUp 1s ease 1s both;
+}
+
+.hero-description {
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.hero-description p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: var(--bg-light);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Floating Elements (existing styles remain the same) */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.floating-element {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.floating-element:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Responsive Design for Hero ETL */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .etl-title {
+        font-size: 1.8rem;
+    }
+    
+    .etl-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .etl-arrow {
+        transform: rotate(90deg);
+        min-width: 30px;
+        margin: 15px 0;
+    }
+    
+    .etl-stage {
+        min-width: 250px;
+        padding: 25px 20px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 0 30px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .etl-title {
+        font-size: 1.5rem;
+    }
+    
+    .etl-subtitle {
+        font-size: 1rem;
+    }
+    
+    .etl-stage {
+        min-width: 220px;
+        padding: 20px 15px;
+    }
+    
+    .etl-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .etl-stage h3 {
+        font-size: 1.2rem;
+    }
+    
+    .source-item,
+    .operation-item,
+    .target-item {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+    }
+}
+
 
         /* Floating Elements */
         .floating-elements {
@@ -1101,7 +1455,7 @@
             }
         }
 
-     
+      
 		
 		
 		
@@ -1285,6 +1639,378 @@
     font-weight: bold;
 }
 
+/* ETL Animation Section */
+.etl-showcase {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--white);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.etl-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.03)" points="0,1000 1000,800 1000,1000"/><polygon fill="rgba(255,255,255,0.05)" points="0,800 1000,600 1000,800 0,1000"/></svg>');
+}
+
+.etl-showcase .container {
+    position: relative;
+    z-index: 2;
+}
+
+.etl-showcase .section-title {
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.etl-showcase .section-title::after {
+    background: linear-gradient(45deg, var(--white), #e3f2fd);
+}
+
+.etl-showcase .section-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 60px;
+}
+
+.etl-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.etl-stage {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    min-width: 250px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+    animation: etlFadeIn 0.8s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.etl-stage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: etlShine 3s ease-in-out infinite;
+}
+
+@keyframes etlShine {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
+}
+
+.etl-stage:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.etl-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--white);
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.etl-stage h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.etl-stage p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.data-sources,
+.transform-operations,
+.target-systems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.source-item,
+.operation-item,
+.target-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: itemFloat 2s ease-in-out infinite;
+}
+
+@keyframes itemFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+.source-item:nth-child(1) { animation-delay: 0s; }
+.source-item:nth-child(2) { animation-delay: 0.2s; }
+.source-item:nth-child(3) { animation-delay: 0.4s; }
+.source-item:nth-child(4) { animation-delay: 0.6s; }
+
+.operation-item:nth-child(1) { animation-delay: 0.1s; }
+.operation-item:nth-child(2) { animation-delay: 0.3s; }
+.operation-item:nth-child(3) { animation-delay: 0.5s; }
+.operation-item:nth-child(4) { animation-delay: 0.7s; }
+
+.target-item:nth-child(1) { animation-delay: 0.2s; }
+.target-item:nth-child(2) { animation-delay: 0.4s; }
+.target-item:nth-child(3) { animation-delay: 0.6s; }
+.target-item:nth-child(4) { animation-delay: 0.8s; }
+
+.etl-arrow {
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-width: 80px;
+}
+
+.arrow-line {
+    height: 3px;
+    background: linear-gradient(90deg, var(--white), rgba(255, 255, 255, 0.8));
+    border-radius: 1.5px;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.arrow-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: arrowFlow 2s ease-in-out infinite;
+}
+
+@keyframes arrowFlow {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.arrow-head {
+    width: 0;
+    height: 0;
+    border-left: 12px solid var(--white);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    margin-left: -2px;
+    animation: arrowBounce 2s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateX(0px); }
+    50% { transform: translateX(5px); }
+}
+
+.data-flow {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+}
+
+.data-flow::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 20px;
+    height: 4px;
+    background: var(--white);
+    border-radius: 2px;
+    animation: dataMove 3s linear infinite;
+}
+
+@keyframes dataMove {
+    0% { left: 0; opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+.etl-tools {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.etl-tools h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--white);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tool-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: toolFloat 3s ease-in-out infinite;
+}
+
+@keyframes toolFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.tool-item:nth-child(1) { animation-delay: 0s; }
+.tool-item:nth-child(2) { animation-delay: 0.2s; }
+.tool-item:nth-child(3) { animation-delay: 0.4s; }
+.tool-item:nth-child(4) { animation-delay: 0.6s; }
+.tool-item:nth-child(5) { animation-delay: 0.8s; }
+.tool-item:nth-child(6) { animation-delay: 1s; }
+
+.tool-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.tool-item i {
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+.tool-item span {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--white);
+}
+
+@keyframes etlFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design for ETL Section */
+@media (max-width: 768px) {
+    .etl-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .etl-arrow {
+        transform: rotate(90deg);
+        min-width: 40px;
+        margin: 20px 0;
+    }
+    
+    .etl-stage {
+        min-width: 280px;
+        padding: 30px 25px;
+    }
+    
+    .etl-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    
+    .etl-stage h3 {
+        font-size: 1.5rem;
+    }
+    
+    .tools-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 15px;
+    }
+    
+    .tool-item {
+        padding: 15px;
+    }
+    
+    .tool-item i {
+        font-size: 1.5rem;
+    }
+    
+    .tool-item span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .etl-stage {
+        min-width: 260px;
+        padding: 25px 20px;
+    }
+    
+    .data-sources,
+    .transform-operations,
+    .target-systems {
+        gap: 6px;
+    }
+    
+    .source-item,
+    .operation-item,
+    .target-item {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -1312,29 +2038,101 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="floating-elements">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-        </div>
+   <!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+    
+    <!-- Name and Tagline -->
+    <div class="hero-intro">
         <div class="hero-content">
             <h1>Sanket Kamble</h1>
             <p class="hero-subtitle">ETL Developer | Data Warehousing | Business Intelligence</p>
-            <p class="hero-description">Senior Data Engineering professional with 4+ years of experience, seeking challenging roles in Data Engineering and Business Intelligence Operations within growth-oriented organizations</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i>
-                    Get In Touch
-                </a>
-                <a href="#projects" class="btn btn-secondary">
-                    <i class="fas fa-code"></i>
-                    View Projects
-                </a>
+        </div>
+    </div>
+    
+    <!-- ETL Animation in Hero -->
+    <div class="hero-etl-section">
+        <div class="container">
+            <h2 class="etl-title">My ETL Expertise</h2>
+            <p class="etl-subtitle">Transforming Data into Business Intelligence</p>
+            
+            <div class="etl-container">
+                <div class="etl-stage hero-extract">
+                    <div class="etl-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Extract</h3>
+                    <div class="data-sources">
+                        <div class="source-item">Oracle</div>
+                        <div class="source-item">Snowflake</div>
+                        <div class="source-item">PostgreSQL</div>
+                        <div class="source-item">Files</div>
+                    </div>
+                </div>
+                
+                <div class="etl-arrow">
+                    <div class="arrow-line"></div>
+                    <div class="arrow-head"></div>
+                    <div class="data-flow"></div>
+                </div>
+                
+                <div class="etl-stage hero-transform">
+                    <div class="etl-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Transform</h3>
+                    <div class="transform-operations">
+                        <div class="operation-item">Clean</div>
+                        <div class="operation-item">Validate</div>
+                        <div class="operation-item">Aggregate</div>
+                        <div class="operation-item">Join</div>
+                    </div>
+                </div>
+                
+                <div class="etl-arrow">
+                    <div class="arrow-line"></div>
+                    <div class="arrow-head"></div>
+                    <div class="data-flow"></div>
+                </div>
+                
+                <div class="etl-stage hero-load">
+                    <div class="etl-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Load</h3>
+                    <div class="target-systems">
+                        <div class="target-item">Data Warehouse</div>
+                        <div class="target-item">Power BI</div>
+                        <div class="target-item">Analytics</div>
+                        <div class="target-item">Reports</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="hero-actions">
+        <div class="hero-description">
+            <p>Senior Data Engineering professional with 4+ years of experience, seeking challenging roles in Data Engineering and Business Intelligence Operations</p>
+        </div>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i>
+                Get In Touch
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+                <i class="fas fa-code"></i>
+                View Projects
+            </a>
+        </div>
+    </div>
+</section>
+
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -1386,53 +2184,9 @@
             </div>
         </div>
     </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            <p class="section-subtitle">My professional journey in data engineering and business intelligence</p>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Project Lead</h3>
-                        <h4>Axtria</h4>
-                        <span class="timeline-date">September 2023 - Present</span>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</p>
-                        <ul>
-                            <li>Gathered and analyzed business requirements, translating them into scalable Data Engineering and BI solutions</li>
-                            <li>Built semantic data models in SQLDBM, streamlining entity and relationship design to improve analytical performance</li>
-                            <li>Built and optimized ETL pipelines for large datasets from Snowflake, PostgreSQL, Oracle, Redshift, flat files, and legacy systems</li>
-                            <li>Implemented Data Quality Frameworks with functional/technical validations and comprehensive audit logging</li>
-                            <li>Managed CI/CD deployments via GitHub and IICS Git Deployment Utility for streamlined operations</li>
-                            <li>Automated workflow scheduling using Control-M and IICS to optimize processing efficiency</li>
-                            <li>Developed Power BI dashboards with advanced DAX and Power Query for performance tracking</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Senior Software Engineer</h3>
-                        <h4>CGI</h4>
-                        <span class="timeline-date">April 2021 - September 2023</span>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</p>
-                        <ul>
-                            <li>Engineered and developed ETL workflows using Informatica PowerCenter and IICS with advanced transformations</li>
-                            <li>Automated data pipeline scheduling with Tidal job scheduler, reducing manual intervention by 80%</li>
-                            <li>Migrated and deployed code through multi-environment pipelines using Change Tickets and Tortoise SVN</li>
-                            <li>Developed robust UNIX shell scripts to validate files, manage workflow dependencies, and loop indirect file loads</li>
-                            <li>Collaborated with cross-functional teams to gather business/technical requirements (BRD/TRD)</li>
-                            <li>Created comprehensive technical documentation and provided QA support for data accuracy</li>
-                            <li>Optimized data extraction, transformation, and loading (ETL) from diverse sources into target systems</li>
-                            <li>Managed end-to-end SDLC for high-priority projects while adhering to best practices</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+	
+	
+    
     <!-- Projects Section -->
 <!-- Projects Section -->
 <section id="projects" class="projects">
@@ -1939,6 +2693,50 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// Hero ETL Animation on Page Load
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        
+        // Animate ETL stages in hero after loader disappears
+        setTimeout(() => {
+            animateHeroETL();
+        }, 600);
+    }, 500);
+});
+
+function animateHeroETL() {
+    const etlStages = document.querySelectorAll('.hero .etl-stage');
+    const arrows = document.querySelectorAll('.hero .etl-arrow');
+    
+    // Set initial states
+    etlStages.forEach(stage => {
+        stage.style.opacity = '0';
+        stage.style.transform = 'translateY(30px) scale(0.9)';
+        stage.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+    
+    arrows.forEach(arrow => {
+        arrow.style.opacity = '0';
+        arrow.style.transition = 'opacity 0.4s ease';
+    });
+    
+    // Animate in sequence
+    etlStages.forEach((stage, index) => {
+        setTimeout(() => {
+            stage.style.opacity = '1';
+            stage.style.transform = 'translateY(0) scale(1)';
+        }, index * 200);
+    });
+    
+    arrows.forEach((arrow, index) => {
+        setTimeout(() => {
+            arrow.style.opacity = '1';
+        }, (index + 1) * 300);
+    });
+}
+
     </script>
 	
 	
@@ -1954,4 +2752,3 @@ document.addEventListener('keydown', function(event) {
 
 </body>
 </html>
-

@@ -2011,6 +2011,114 @@
 }
 
 
+/* Recommendations Section */
+.recommendations {
+    background: var(--bg-light);
+    padding: 100px 0;
+}
+
+.recommendations-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.recommendation-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.recommendation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+}
+
+.recommendation-content {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.quote-icon {
+    position: absolute;
+    top: -15px;
+    right: -5px;
+    font-size: 4rem;
+    color: rgba(102, 126, 234, 0.1);
+    z-index: 1;
+}
+
+.recommendation-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.recommendation-author {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(102, 126, 234, 0.1);
+    padding-top: 20px;
+}
+
+.author-info h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.author-info p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.linkedin-cta {
+    text-align: center;
+    padding: 40px 0 20px;
+}
+
+.linkedin-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: var(--text-light);
+}
+
+/* Responsive Design for Recommendations */
+@media (max-width: 768px) {
+    .recommendations-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .recommendation-card {
+        min-height: auto;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -2026,11 +2134,11 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
+				<li><a href="#recommendations" class="nav-link">Recommendations</a></li>
+                <li><a href="#projects" class="nav-link">Personal Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#achievements" class="nav-link">Achievements</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+               
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -2179,7 +2287,69 @@
     </section>
 	
 	
-    
+    <!-- LinkedIn Recommendations Section -->
+<section id="recommendations" class="recommendations">
+    <div class="container">
+        <h2 class="section-title">LinkedIn Recommendations</h2>
+        <p class="section-subtitle">What colleagues and managers say about my work</p>
+        
+        <div class="recommendations-container">
+            <div class="recommendation-card">
+                <div class="recommendation-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="recommendation-text">While working with Sanket at Point32health in our scrum team, he has proven impeccable skills that place great value to the team and the organization as a whole. Sanket is able to work successfully with open communication cross functionally with all members of our team. I would recommend Sanket as he continually strives to meet the needs of the development teams, and helping to communicate complex details to the business. It’s been a pleasure working with him. </p>
+                </div>
+                <div class="recommendation-author">
+                    <div class="author-info">
+                        <h4>Carla Stigliano</h4>
+                        <p>Product Owner | Point32health </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recommendation-card">
+                <div class="recommendation-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="recommendation-text">I worked with Sanket in an agile capacity for two years and I recommend him for any company. He is a hard working, committed, a thorough developer. He welcomes feedback and improvements and is easy to work with. </p>
+                </div>
+                <div class="recommendation-author">
+                    <div class="author-info">
+                        <h4>Elizabeth Kane</h4>
+                        <p>Senior Business System Analyst | Tufts Health Plan</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recommendation-card">
+                <div class="recommendation-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="recommendation-text">I am thrilled to recommend Sanket, a highly skilled database and ETL developer, who has been an invaluable asset to our team. As a business systems analyst, I have had the pleasure of working closely with Sanket on multiple projects. His expertise in database management and ETL processes has consistently impressed me. Sanket has a deep understanding of the intricacies of data and has consistently demonstrated his ability to design and develop robust databases and efficient ETL workflows. He has a keen eye for identifying business requirements and translating them into effective technical solutions. Sanket's collaborative approach, exceptional communication skills, and dedication to delivering high-quality work have made him an indispensable team member. His contributions have greatly enhanced our data-driven decision-making capabilities and streamlined our business processes. I wholeheartedly recommend Sanket for any database and ETL development role. His technical prowess and commitment to excellence makes him an invaluable asset to any organization.</p>
+                </div>
+                <div class="recommendation-author">
+                    <div class="author-info">
+                        <h4>John Backer</h4>
+                        <p>End-to-End Product Strategist | NTT Data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="linkedin-cta">
+            <p>View more recommendations on my LinkedIn profile</p>
+            <a href="https://www.linkedin.com/in/sanketkamble007" target="_blank" class="btn btn-primary">
+                <i class="fab fa-linkedin"></i>
+                Visit My LinkedIn
+            </a>
+        </div>
+    </div>
+</section>
+
     <!-- Projects Section -->
 <!-- Projects Section -->
 <section id="projects" class="projects">
@@ -2730,6 +2900,41 @@ function animateHeroETL() {
     });
 }
 
+// Recommendations carousel functionality
+function initRecommendationsCarousel() {
+    const container = document.querySelector('.recommendations-container');
+    if (!container) return;
+    
+    const cards = container.querySelectorAll('.recommendation-card');
+    let currentIndex = 0;
+    
+    // Only activate carousel on mobile
+    if (window.innerWidth > 768) return;
+    
+    // Hide all cards except the first one
+    cards.forEach((card, index) => {
+        if (index !== 0) {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Function to show next card
+    function showNextCard() {
+        cards[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex + 1) % cards.length;
+        cards[currentIndex].style.display = 'flex';
+    }
+    
+    // Auto-rotate cards every 5 seconds
+    setInterval(showNextCard, 5000);
+}
+
+// Initialize when page loads
+window.addEventListener('load', initRecommendationsCarousel);
+
+// Re-initialize on window resize
+window.addEventListener('resize', initRecommendationsCarousel);
+
     </script>
 	
 	
@@ -2745,5 +2950,4 @@ function animateHeroETL() {
 
 </body>
 </html>
-
 
